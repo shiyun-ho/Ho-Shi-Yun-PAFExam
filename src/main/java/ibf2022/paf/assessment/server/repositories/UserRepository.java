@@ -45,12 +45,13 @@ public class UserRepository {
 
     public String insertUser(User user) throws Exception{
 
-        int inserted = jdbcTemplate.update(SQL_INSERT_USER, UUID.randomUUID().toString().substring(0,8),
+        String uuid = UUID.randomUUID().toString().substring(0,8);
+        int inserted = jdbcTemplate.update(SQL_INSERT_USER, uuid,
                     user.getUsername(), user.getName()); 
         if (inserted <= 0){
             throw new Exception("Unable to find user"); 
         }
-        return "Completed inserting user information.";
+        return uuid;
     }
 
     // public String insertUser(User user){
