@@ -38,9 +38,19 @@ public class UserRepository {
     //insert into user(user_id, username, name) values ("1b80118g","freddy","Freddy");
     private static final String SQL_INSERT_USER = "insert into user(user_id, username, name) values (?, ?, ?)"; 
 
-    public int insertUser(User user){
-        return jdbcTemplate.update(SQL_INSERT_USER, UUID.randomUUID().toString().substring(0,8),
+    // public int insertUser(User user){
+    //     return jdbcTemplate.update(SQL_INSERT_USER, UUID.randomUUID().toString().substring(0,8),
+    //                 user.getUsername(), user.getName()); 
+    // }
+
+    public String insertUser(User user) throws Exception{
+
+        int inserted = jdbcTemplate.update(SQL_INSERT_USER, UUID.randomUUID().toString().substring(0,8),
                     user.getUsername(), user.getName()); 
+        if (inserted <= 0){
+            throw new Exception("Unable to find user"); 
+        }
+        return "Completed inserting user information.";
     }
 
     // public String insertUser(User user){

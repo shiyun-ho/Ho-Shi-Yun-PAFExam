@@ -24,20 +24,30 @@ public class Utils {
         return user; 
     }
 
-    //toTask
-    public static Task toTask(String jsonStr){
+    public static Task toTask(String username, String description, Integer priority){
         Task task = new Task(); 
-        JsonReader reader = Json.createReader(new StringReader(jsonStr));
-        JsonObject json = reader.readObject(); 
-        
-        //create the getters and setters in Task.java
-        //get the payload
-        task.setUsername(json.getString("username"));
-        task.setDescription(json.getString("description"));
-        task.setPriority(json.getInt("priority"));
-        task.setDueDate((Date) json.getJsonObject("dueDate"));
+
+        task.setUsername(username);
+        task.setDescription(description);
+        task.setPriority(priority);
 
         return task; 
-        
     }
+
+    // //toTask
+    // public static Task toTask(String jsonStr){
+    //     Task task = new Task(); 
+    //     JsonReader reader = Json.createReader(new StringReader(jsonStr));
+    //     JsonObject json = reader.readObject(); 
+        
+    //     //create the getters and setters in Task.java
+    //     //get the payload
+    //     task.setUsername(json.getString("username"));
+    //     task.setDescription(json.getString("description"));
+    //     task.setPriority(json.getInt("priority"));
+    //     task.setDueDate((Date) json.getJsonObject("dueDate"));
+
+    //     return task; 
+        
+    // }
 }
