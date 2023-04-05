@@ -25,3 +25,11 @@ public class User {
 				.formatted(userId, username, name);
 	}
 }
+
+// create table user(
+// 	id int not null auto_increment,
+// 	user_id varchar(8),
+//     username varchar(15),
+//     name nvarchar(15),
+//     constraint id_pk primary key(id)
+// );
