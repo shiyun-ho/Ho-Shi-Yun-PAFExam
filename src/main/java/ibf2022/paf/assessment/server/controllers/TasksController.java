@@ -53,6 +53,7 @@ public class TasksController {
         List<Task> tasks = List.of(task); 
 
         User user = new User();
+        user.setUsername(username);
         try {
             todoSvc.upsertTask(tasks, user);
             

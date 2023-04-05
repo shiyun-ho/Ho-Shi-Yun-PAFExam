@@ -38,7 +38,7 @@ public class TodoService {
 
         for (Task task : tasks) {
             try {
-                tasks.add(taskRepo.insertTask(task.getDescription(), task.getPriority(), task.getDueDate(), task.getUsername()));
+                taskRepo.insertTask(task.getDescription(), task.getPriority(), task.getDueDate(), task.getUsername());
             } catch (TaskNotFoundException tnfex) {
                 // TODO: Handle the exception
                 throw new TaskNotFoundException("Unable to insert task: " + task.getDescription());
@@ -46,10 +46,31 @@ public class TodoService {
         }
 
         return true;
-    }
 
+  
+    // @Transactional (rollbackFor = TaskNotFoundException.class)
+    // public Boolean upsertTask(List<Task> tasks, User user) throws Exception{
+    //     Boolean result = userExists(((Task) tasks).getUsername().toString()); 
+    //     if (!result){
+    //         //create a user
+    //         userRepo.insertUser(user); 
+    //     } 
 
+    //     for (Task task: tasks){
+    //         try {
+    //             //create a list of tasks into Task List
+    //             result = tasks.add(taskRepo.insertTask(task.getDescription(), task.getPriority(), task.getDueDate(), task.getUsername()));
+                
+    //         } catch (TaskNotFoundException tnfex) {
+    //             // TODO: handle exception
+    //             throw new TaskNotFoundException("Unable to insert task: %s \n".formatted(task.getDescription())); 
+    //         }
+            
+    //     }
+
+    //     return result; 
+    // }
     
     
 
-}
+}}

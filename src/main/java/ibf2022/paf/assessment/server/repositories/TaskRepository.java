@@ -1,14 +1,7 @@
 package ibf2022.paf.assessment.server.repositories;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
